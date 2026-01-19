@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SilkSmile | Стоматологическая клиника</title>
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключение иконок Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Подключение шрифта Gabarito -->
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .font-gabarito {
+            font-family: 'Gabarito', sans-serif;
+        }
+        .soft-violet {
+            color: #9D71E8;
+        }
+        .bg-soft-violet {
+            background-color: #9D71E8;
+        }
+        
+        /* Стили для тёмной темы */
+        .dark-theme {
+            background-color: #1a1a1a !important;
+            color: #e5e5e5 !important;
+        }
+        .dark-theme header {
+            background-color: #2d2d2d !important;
+            color: #e5e5e5 !important;
+        }
+        .dark-theme .text-gray-700 {
+            color: #d1d5db !important;
+        }
+        .dark-theme .text-gray-800 {
+            color: #e5e5e5 !important;
+        }
+        .dark-theme .text-gray-600 {
+            color: #9ca3af !important;
+        }
+        .dark-theme .bg-white {
+            background-color: #2d2d2d !important;
+        }
+        .dark-theme .bg-gray-800 {
+            background-color: #111827 !important;
+        }
+        .dark-theme footer {
+            background-color: #111827 !important;
+        }
+        .dark-theme .bg-gray-50 {
+            background-color: #2d2d2d !important;
+        }
+        .dark-theme .border-gray-200 {
+            border-color: #374151 !important;
+        }
+        .dark-theme .bg-purple-600 {
+            background-color: #6d28d9 !important;
+        }
+        .dark-theme .to-pink-500 {
+            background-color: #be185d !important;
+        }
+        .dark-theme .text-purple-700 {
+            color: #a78bfa !important;
+        }
+        .dark-theme .hover\:text-purple-700:hover {
+            color: #a78bfa !important;
+        }
+        .dark-theme .bg-gray-100 {
+            background-color: #374151 !important;
+        }
+        .dark-theme .hover\:bg-gray-200:hover {
+            background-color: #4b5563 !important;
+        }
+        .dark-theme .text-gray-900 {
+            color: #f3f4f6 !important;
+        }
+        .dark-theme .text-gray-500 {
+            color: #9ca3af !important;
+        }
+        .dark-theme .border-b {
+            border-color: #4b5563 !important;
+        }
+        .dark-theme .border-gray-300 {
+            border-color: #4b5563 !important;
+        }
+        .dark-theme .shadow-lg {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        /* Скрытый класс */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white font-gabarito">
+    <!-- Шапка сайта -->
+    <header class="bg-white py-4 shadow">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Логотип и название -->
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-tooth text-2xl soft-violet"></i>
+                <a href="index.html" class="text-2xl font-bold soft-violet">SilkSmile</a>
+            </div>
+            
+            <!-- Навигация -->
+            <div class="flex items-center space-x-6">
+                <a href="index.html" class="text-gray-700 hover:text-purple-700">Главная</a>
+                <a href="pages/register.html" class="text-gray-700 hover:text-purple-700">Регистрация</a>
+                <a href="pages/login.html" class="text-gray-700 hover:text-purple-700">Вход</a>
+                
+                <!-- Кнопка переключения темы -->
+                <button onclick="toggleTheme()" class="ml-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                    <i id="themeIcon" class="fas fa-moon text-gray-700"></i>
+                </button>
+                
+                <!-- Профиль пользователя -->
+                <div class="relative">
+                    <button onclick="toggleProfileDropdown()" class="flex items-center space-x-2 text-gray-700 hover:text-purple-700">
+                        <i class="fas fa-user-circle text-xl"></i>
+                        <span id="profileName">Гость</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    
+                    <!-- Выпадающее меню профиля -->
+                    <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 border border-gray-200">
+                        <div class="px-4 py-2 border-b">
+                            <p class="text-sm font-medium text-gray-900" id="dropdownUserName">Гость</p>
+                            <p class="text-xs text-gray-500" id="dropdownUserEmail">Не авторизован</p>
+                        </div>
+                        <a href="pages/profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Мой профиль</a>
+                        <a href="#" onclick="logout()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Выйти</a>
+                        <div class="border-t my-1"></div>
+                        <div class="px-4 py-2"><p class="text-xs text-gray-500 font-medium">Демо-вход:</p></div>
+                        <button onclick="selectUser(1)" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Иван Петров (Пациент)
+                        </button>
+                        <button onclick="selectUser(2)" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Доктор Смирнова (Врач)
+                        </button>
+                        <button onclick="selectUser(3)" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Администратор (Администратор)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Главный контент -->
+    <main class="min-h-screen">
+        <!-- Баннер -->
+        <section class="relative h-96 w-full mb-8">
+            <div id="bannerGradient" class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-500"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white max-w-2xl px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">SilkSmile</h1>
+                    <p class="text-lg md:text-xl mb-6">
+                        Современная стоматология с безупречной эстетикой и бережным отношением
+                    </p>
+                    <a href="pages/register.html" 
+                       class="inline-block bg-white text-purple-700 px-6 py-3 rounded-lg 
+                              font-bold hover:bg-gray-100 transition">
+                        Записаться на приём
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция с тремя картинками услуг -->
+        <section class="container mx-auto px-6 mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 text-center mb-10">Наши основные услуги</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Карточка услуги 1 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Эстетическая стоматология" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Эстетическая стоматология</h3>
+                        <p class="text-gray-200">Создание идеальной улыбки с использованием виниров и современных реставрационных материалов</p>
+                    </div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-4 py-2 bg-white/90 backdrop-blur-sm text-purple-700 rounded-full font-bold text-sm">
+                            от 15 000 ₽
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Карточка услуги 2 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Имплантация зубов" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Имплантация зубов</h3>
+                        <p class="text-gray-200">Восстановление утраченных зубов с гарантией 10 лет и пожизненной поддержкой</p>
+                    </div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-4 py-2 bg-white/90 backdrop-blur-sm text-purple-700 rounded-full font-bold text-sm">
+                            от 35 000 ₽
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Карточка услуги 3 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Исправление прикуса" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Исправление прикуса</h3>
+                        <p class="text-gray-200">Современные брекет-системы и элайнеры для идеальной улыбки в любом возрасте</p>
+                    </div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-4 py-2 bg-white/90 backdrop-blur-sm text-purple-700 rounded-full font-bold text-sm">
+                            от 60 000 ₽
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопка для просмотра всех услуг -->
+            <div class="text-center mt-10">
+                <a href="pages/services.html" 
+                   class="inline-flex items-center px-8 py-4 bg-soft-violet text-white rounded-lg 
+                          font-bold hover:bg-purple-700 transition duration-300 text-lg">
+                    <i class="fas fa-list mr-3"></i>
+                    Смотреть все услуги
+                </a>
+            </div>
+        </section>
+
+        <!-- Краткое описание -->
+        <section class="container mx-auto px-6 mb-12">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">О клинике</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    SilkSmile — это современная стоматология, где встречаются безупречная эстетика, 
+                    бережное отношение и доверие пациента. Проверенные технологии, безболезненное 
+                    лечение и индивидуальный подход к вашей улыбке.
+                </p>
+                
+                <!-- Информация о текущем пользователе -->
+                <div id="userInfo" class="mt-8 p-6 bg-gray-50 rounded-lg max-w-md mx-auto hidden">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Информация о профиле</h3>
+                    <div class="text-left space-y-2">
+                        <p><span class="font-medium">Имя:</span> <span id="infoUserName">-</span></p>
+                        <p><span class="font-medium">Email:</span> <span id="infoUserEmail">-</span></p>
+                        <p><span class="font-medium">Роль:</span> <span id="infoUserRole">-</span></p>
+                        <p><span class="font-medium">Тема:</span> <span id="infoUserTheme">Светлая</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 SilkSmile. Стоматологическая клиника</p>
+            <p class="text-sm text-gray-400 mt-2">Текущая тема: <span id="currentTheme">Светлая</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Элементы DOM
+        const themeIcon = document.getElementById('themeIcon');
+        const currentThemeSpan = document.getElementById('currentTheme');
+        const body = document.body;
+        const bannerGradient = document.getElementById('bannerGradient');
+        
+        const profileDropdown = document.getElementById('profileDropdown');
+        const profileName = document.getElementById('profileName');
+        const dropdownUserName = document.getElementById('dropdownUserName');
+        const dropdownUserEmail = document.getElementById('dropdownUserEmail');
+        
+        const userInfo = document.getElementById('userInfo');
+        const infoUserName = document.getElementById('infoUserName');
+        const infoUserEmail = document.getElementById('infoUserEmail');
+        const infoUserRole = document.getElementById('infoUserRole');
+        const infoUserTheme = document.getElementById('infoUserTheme');
+        
+        // Данные пользователей
+        const users = [
+            {id: 1, username: "Иван Петров", email: "ivan@example.com", role: "Пациент", theme: "light"},
+            {id: 2, username: "Доктор Смирнова", email: "smirnova@clinic.com", role: "Врач", theme: "light"},
+            {id: 3, username: "Администратор", email: "admin@clinic.com", role: "Администратор", theme: "dark"}
+        ];
+        
+        let currentUser = null;
+        
+        // Функция переключения темы
+        function toggleTheme() {
+            if (body.classList.contains('dark-theme')) {
+                enableLightTheme();
+            } else {
+                enableDarkTheme();
+            }
+        }
+        
+        // Включение тёмной темы
+        function enableDarkTheme() {
+            body.classList.add('dark-theme');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            currentThemeSpan.textContent = "Тёмная";
+            infoUserTheme.textContent = "Тёмная";
+            
+            // Изменяем градиент баннера для тёмной темы
+            if (bannerGradient) {
+                bannerGradient.classList.remove('from-purple-600', 'to-pink-500');
+                bannerGradient.classList.add('from-purple-800', 'to-pink-700');
+            }
+            
+            if (currentUser) {
+                currentUser.theme = 'dark';
+            }
+        }
+        
+        // Включение светлой темы
+        function enableLightTheme() {
+            body.classList.remove('dark-theme');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            currentThemeSpan.textContent = "Светлая";
+            infoUserTheme.textContent = "Светлая";
+            
+            // Восстанавливаем оригинальный градиент баннера
+            if (bannerGradient) {
+                bannerGradient.classList.remove('from-purple-800', 'to-pink-700');
+                bannerGradient.classList.add('from-purple-600', 'to-pink-500');
+            }
+            
+            if (currentUser) {
+                currentUser.theme = 'light';
+            }
+        }
+        
+        // Переключение выпадающего меню профиля
+        function toggleProfileDropdown() {
+            profileDropdown.classList.toggle('hidden');
+        }
+        
+        // Выход из системы
+        function logout() {
+            currentUser = null;
+            profileDropdown.classList.add('hidden');
+            updateProfileDisplay();
+            userInfo.classList.add('hidden');
+            alert("Вы вышли из системы");
+        }
+        
+        // Выбор пользователя
+        function selectUser(userId) {
+            const selectedUser = users.find(user => user.id === userId);
+            if (selectedUser) {
+                currentUser = {...selectedUser};
+                updateProfileDisplay();
+                userInfo.classList.remove('hidden');
+                profileDropdown.classList.add('hidden');
+                alert(`Вход выполнен как: ${selectedUser.username}`);
+                
+                // Применяем тему пользователя
+                if (currentUser.theme === 'dark') {
+                    enableDarkTheme();
+                } else {
+                    enableLightTheme();
+                }
+            }
+        }
+        
+        // Обновление отображения профиля
+        function updateProfileDisplay() {
+            if (currentUser) {
+                profileName.textContent = currentUser.username;
+                dropdownUserName.textContent = currentUser.username;
+                dropdownUserEmail.textContent = currentUser.email;
+                
+                infoUserName.textContent = currentUser.username;
+                infoUserEmail.textContent = currentUser.email;
+                infoUserRole.textContent = currentUser.role;
+            } else {
+                profileName.textContent = "Гость";
+                dropdownUserName.textContent = "Гость";
+                dropdownUserEmail.textContent = "Не авторизован";
+            }
+        }
+        
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProfileDisplay();
+            
+            // Закрытие выпадающего меню при клике вне его
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.relative')) {
+                    profileDropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

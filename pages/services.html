@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги | SilkSmile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .font-gabarito { font-family: 'Gabarito', sans-serif; }
+        .soft-violet { color: #9D71E8; }
+        .bg-soft-violet { background-color: #9D71E8; }
+        
+        .dark-theme { background-color: #1a1a1a !important; color: #e5e5e5 !important; }
+        .dark-theme header { background-color: #2d2d2d !important; }
+        .dark-theme .bg-white { background-color: #2d2d2d !important; }
+        .dark-theme .text-gray-700 { color: #d1d5db !important; }
+        .dark-theme .text-gray-800 { color: #e5e5e5 !important; }
+        .dark-theme .text-gray-600 { color: #9ca3af !important; }
+        .dark-theme .bg-gray-50 { background-color: #2d2d2d !important; }
+        .dark-theme .border-gray-200 { border-color: #374151 !important; }
+        .dark-theme .bg-gray-100 { background-color: #374151 !important; }
+        .dark-theme .hover\:bg-gray-200:hover { background-color: #4b5563 !important; }
+        .dark-theme .text-gray-900 { color: #f3f4f6 !important; }
+        .dark-theme .text-purple-700 { color: #a78bfa !important; }
+        .dark-theme .hover\:text-purple-700:hover { color: #a78bfa !important; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-white font-gabarito">
+    <header class="bg-white py-4 shadow">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-tooth text-2xl soft-violet"></i>
+                <a href="../index.html" class="text-2xl font-bold soft-violet">SilkSmile</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="../index.html" class="text-gray-700 hover:text-purple-700">Главная</a>
+                <a href="services.html" class="text-gray-700 hover:text-purple-700 font-medium border-b-2 border-soft-violet">Услуги</a>
+                <a href="register.html" class="text-gray-700 hover:text-purple-700">Регистрация</a>
+                <a href="login.html" class="text-gray-700 hover:text-purple-700">Вход</a>
+                <button onclick="window.history.back()" class="ml-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                    <i class="fas fa-arrow-left text-gray-700"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="min-h-screen py-12">
+        <div class="container mx-auto px-6">
+            <!-- Заголовок -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Наши услуги</h1>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Мы предлагаем полный спектр стоматологических услуг с использованием 
+                    современного оборудования и передовых технологий
+                </p>
+            </div>
+
+            <!-- Фильтры услуг -->
+            <div class="mb-8">
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button class="px-4 py-2 bg-soft-violet text-white rounded-lg">Все услуги</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">Терапия</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">Хирургия</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">Ортодонтия</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">Протезирование</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">Гигиена</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">Отбеливание</button>
+                </div>
+            </div>
+
+            <!-- Список услуг -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Услуга 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-tooth text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Лечение кариеса</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Безболезненное лечение кариеса с использованием современных пломбировочных материалов</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">от 2 500 ₽</span>
+                            <button class="px-4 py-2 bg-soft-violet text-white rounded-lg hover:bg-purple-700">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Услуга 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-teeth text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Профессиональная чистка</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Комплексная гигиеническая чистка зубов с удалением зубного камня и налёта</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">от 4 000 ₽</span>
+                            <button class="px-4 py-2 bg-soft-violet text-white rounded-lg hover:bg-purple-700">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Услуга 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-tooth text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Имплантация</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Восстановление утраченных зубов с использованием современных имплантационных систем</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">от 35 000 ₽</span>
+                            <button class="px-4 py-2 bg-soft-violet text-white rounded-lg hover:bg-purple-700">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Услуга 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-teeth-open text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Исправление прикуса</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Ортодонтическое лечение с использованием брекет-систем и элайнеров</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">от 60 000 ₽</span>
+                            <button class="px-4 py-2 bg-soft-violet text-white rounded-lg hover:bg-purple-700">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Услуга 5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-crown text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Установка коронок</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Изготовление и установка зубных коронок из различных материалов</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">от 12 000 ₽</span>
+                            <button class="px-4 py-2 bg-soft-violet text-white rounded-lg hover:bg-purple-700">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Услуга 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-smile text-pink-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Отбеливание зубов</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Безопасное отбеливание зубов с гарантированным результатом</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">от 8 000 ₽</span>
+                            <button class="px-4 py-2 bg-soft-violet text-white rounded-lg hover:bg-purple-700">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Дополнительная информация -->
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">Почему выбирают нас?</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Современное оборудование премиум-класса</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Опытные врачи с подтверждённой квалификацией</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Индивидуальный подход к каждому пациенту</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Гарантия на все виды лечения</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Безболезненное лечение с анестезией</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="inline-block p-6 bg-white rounded-xl shadow-lg">
+                            <i class="fas fa-headset text-5xl text-purple-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Нужна консультация?</h3>
+                            <p class="text-gray-600 mb-4">Запишитесь на бесплатную консультацию</p>
+                            <button class="px-6 py-3 bg-soft-violet text-white rounded-lg hover:bg-purple-700 font-bold">
+                                Записаться на консультацию
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 SilkSmile. Стоматологическая клиника</p>
+        </div>
+    </footer>
+
+    <script>
+        // Простая логика для кнопок записи
+        document.querySelectorAll('button:contains("Записаться")').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Для записи на услугу необходимо авторизоваться в системе');
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+</html>

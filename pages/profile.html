@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль | SilkSmile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .font-gabarito { font-family: 'Gabarito', sans-serif; }
+        .soft-violet { color: #9D71E8; }
+        .bg-soft-violet { background-color: #9D71E8; }
+        
+        .dark-theme { background-color: #1a1a1a !important; color: #e5e5e5 !important; }
+        .dark-theme header { background-color: #2d2d2d !important; }
+        .dark-theme .bg-white { background-color: #2d2d2d !important; }
+        .dark-theme .text-gray-700 { color: #d1d5db !important; }
+        .dark-theme .text-gray-800 { color: #e5e5e5 !important; }
+        .dark-theme .text-gray-600 { color: #9ca3af !important; }
+        .dark-theme .bg-gray-50 { background-color: #2d2d2d !important; }
+        .dark-theme .border-gray-200 { border-color: #374151 !important; }
+        .dark-theme .bg-gray-100 { background-color: #374151 !important; }
+        .dark-theme .hover\:bg-gray-200:hover { background-color: #4b5563 !important; }
+        .dark-theme .text-gray-900 { color: #f3f4f6 !important; }
+        .dark-theme .text-purple-700 { color: #a78bfa !important; }
+        .dark-theme .hover\:text-purple-700:hover { color: #a78bfa !important; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-white font-gabarito">
+    <header class="bg-white py-4 shadow">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-tooth text-2xl soft-violet"></i>
+                <a href="../index.html" class="text-2xl font-bold soft-violet">SilkSmile</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="../index.html" class="text-gray-700 hover:text-purple-700">Главная</a>
+                <a href="profile.html" class="text-gray-700 hover:text-purple-700 font-medium border-b-2 border-soft-violet">Профиль</a>
+                <button onclick="window.history.back()" class="ml-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                    <i class="fas fa-arrow-left text-gray-700"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="min-h-screen py-12">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold text-gray-800">Личный кабинет</h1>
+                <button onclick="logout()" class="px-6 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition flex items-center">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Выйти
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Левая колонка - информация профиля -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Карточка профиля -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center mb-6">
+                            <div class="w-24 h-24 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-4xl font-bold">
+                                ИП
+                            </div>
+                            <div class="ml-6">
+                                <h2 class="text-2xl font-bold text-gray-800" id="userFullName">Иван Петров</h2>
+                                <p class="text-gray-600" id="userRole">Пациент</p>
+                                <p class="text-gray-500 text-sm mt-1" id="userEmail">ivan@example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <p class="text-sm text-gray-500">Номер карты</p>
+                                <p class="font-bold text-gray-800">P-2025-001234</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <p class="text-sm text-gray-500">Дата регистрации</p>
+                                <p class="font-bold text-gray-800">15.01.2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ближайшие записи -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-calendar-alt text-purple-600 mr-2"></i> Ближайшие записи
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Консультация стоматолога</h4>
+                                        <p class="text-gray-600 text-sm">Доктор Смирнова А.В.</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-bold text-gray-800">20 января 2025</p>
+                                        <p class="text-gray-600 text-sm">14:30 - 15:00</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2 flex space-x-2">
+                                    <button class="px-3 py-1 bg-purple-100 text-purple-700 rounded text-sm">Подробнее</button>
+                                    <button class="px-3 py-1 bg-red-100 text-red-700 rounded text-sm">Отменить</button>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Профессиональная чистка</h4>
+                                        <p class="text-gray-600 text-sm">Доктор Иванов П.С.</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-bold text-gray-800">25 января 2025</p>
+                                        <p class="text-gray-600 text-sm">11:00 - 11:45</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2 flex space-x-2">
+                                    <button class="px-3 py-1 bg-purple-100 text-purple-700 rounded text-sm">Подробнее</button>
+                                    <button class="px-3 py-1 bg-red-100 text-red-700 rounded text-sm">Отменить</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <a href="#" class="inline-flex items-center text-purple-600 hover:text-purple-700">
+                                <i class="fas fa-plus mr-2"></i> Записаться на новый приём
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- История лечения -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-file-medical text-blue-600 mr-2"></i> История лечения
+                        </h3>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 text-gray-700">Дата</th>
+                                        <th class="text-left py-3 text-gray-700">Процедура</th>
+                                        <th class="text-left py-3 text-gray-700">Врач</th>
+                                        <th class="text-left py-3 text-gray-700">Статус</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="py-3">10.01.2025</td>
+                                        <td class="py-3">Консультация и диагностика</td>
+                                        <td class="py-3">Смирнова А.В.</td>
+                                        <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Завершено</span></td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="py-3">05.01.2025</td>
+                                        <td class="py-3">Лечение кариеса</td>
+                                        <td class="py-3">Иванов П.С.</td>
+                                        <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Завершено</span></td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="py-3">20.12.2024</td>
+                                        <td class="py-3">Профессиональная чистка</td>
+                                        <td class="py-3">Смирнова А.В.</td>
+                                        <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Завершено</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка - действия и информация -->
+                <div class="space-y-8">
+                    <!-- Быстрые действия -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Быстрые действия</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-calendar-plus text-purple-600 mr-3"></i>
+                                <span>Новая запись</span>
+                            </a>
+                            <a href="#" class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-file-medical text-blue-600 mr-3"></i>
+                                <span>Медкарта</span>
+                            </a>
+                            <a href="#" class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-credit-card text-green-600 mr-3"></i>
+                                <span>Оплата услуг</span>
+                            </a>
+                            <a href="#" class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-cog text-gray-600 mr-3"></i>
+                                <span>Настройки</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Контактная информация -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Контактная информация</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-gray-400 w-6"></i>
+                                <span class="ml-3">+7 (999) 123-45-67</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-gray-400 w-6"></i>
+                                <span class="ml-3">ivan@example.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-birthday-cake text-gray-400 w-6"></i>
+                                <span class="ml-3">15.08.1985</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-gray-400 w-6"></i>
+                                <span class="ml-3">г. Новосибирск</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 py-2 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition">
+                            Редактировать
+                        </button>
+                    </div>
+
+                    <!-- Статистика -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Статистика</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">Всего посещений</span>
+                                    <span class="font-bold">8</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">Завершённых процедур</span>
+                                    <span class="font-bold">6</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">Предстоящих приёмов</span>
+                                    <span class="font-bold">2</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 20%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 SilkSmile. Стоматологическая клиника</p>
+        </div>
+    </footer>
+
+    <script>
+        function logout() {
+            if (confirm('Вы уверены, что хотите выйти из системы?')) {
+                alert('Вы успешно вышли из системы');
+                window.location.href = '../index.html';
+            }
+        }
+    </script>
+</body>
+</html>
